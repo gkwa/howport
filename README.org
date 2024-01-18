@@ -1,0 +1,19 @@
+** purpose: fetch and transform weather data from openweathermap.org
+
+Output is jsonl:
+#+begin_example
+{"epoch": 1705536000, "timestamp": "2024-01-18 00:00:00", "temp_kelvin": 274.77, "temp_fahrenheit": 34.91600000000001, "temp_celcius": 1.6200000000000045}
+{"epoch": 1705539600, "timestamp": "2024-01-18 01:00:00", "temp_kelvin": 274.55, "temp_fahrenheit": 34.52000000000006, "temp_celcius": 1.400000000000034}
+...
+#+end_example
+
+** usage
+
+#+begin_example
+set +o history
+export OPENWEATHERMAP_API_KEY={secret}
+set -o history
+python fetch_weather.py
+python transform.py
+ls transform.jsonl
+#+end_example
